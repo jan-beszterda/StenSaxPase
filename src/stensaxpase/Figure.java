@@ -1,26 +1,39 @@
 package stensaxpase;
 
+/**
+ * Figure class provides the template for the options (Rock, Paper, Scissors) used within the game.
+ *
+ * @author Jan Beszterda
+ */
 public class Figure {
 
-    private String NAME;
-    private String STRENGTH;
-    private String WEAKNESS;
+    private String name;
+    private String winOver;
+    private String looseTo;
 
-    public Figure(String NAME, String WIN_OVER, String LOOSE_TO) {
-        this.NAME = NAME;
-        this.STRENGTH = WIN_OVER;
-        this.WEAKNESS = LOOSE_TO;
+
+    /**
+     * Constructor of the game figure object.
+     *
+     * @param name Figure name.
+     * @param winOver Figure name this Figures wins with.
+     * @param looseTo Figure name this Figures looses to.
+     */
+    public Figure(String name, String winOver, String looseTo) {
+        this.name = name;
+        this.winOver = winOver;
+        this.looseTo = looseTo;
     }
 
-    public String getNAME() {
-        return NAME;
+    public String getName() {
+        return name;
     }
 
-    public String getSTRENGTH() {
-        return STRENGTH;
+    public String getWinOver() {
+        return winOver;
     }
 
-    public String getWEAKNESS() {
-        return WEAKNESS;
+    public String getLooseTo() {
+        return looseTo;
     }
 }
