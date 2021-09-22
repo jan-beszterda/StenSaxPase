@@ -3,7 +3,7 @@ package stensaxpase;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -250,21 +250,26 @@ public class Game {
     private void writeResultsToFile() {
         System.out.println();
         System.out.println("Skriver resultathistorik till fil...");
-        LocalDate now = LocalDate.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        LocalDateTime now = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
         try {
             BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("StenSaxPase_History.txt", true));
-            String dateToWrite = formatter.format(now) + "\n";
+            bufferedWriter.append("********************\n");
+            String dateToWrite = formatter.format(now) + "\n\n";
             bufferedWriter.append(dateToWrite);
             for (Player player : players) {
                 String playerToWrite = player.getName() + "\n";
                 bufferedWriter.append(playerToWrite);
                 if (player.getResultHistory().isEmpty()) {
                     bufferedWriter.append("Inga matcher spelade hittills!");
-                }
-                for (Result result : player.getResultHistory()) {
-                    String resultToWrite = "Spel nummer: " + result.getMatchId() + " " + result.getResultText() + " Ditt val var: " + result.getPlayersFigure().getName() + ", datorns val var: " + result.getComputersFigure().getName() + "\n";
-                    bufferedWriter.append(resultToWrite);
+                } else {
+                    for (Result result : player.getResultHistory()) {
+                        String resultToWrite = "Spel nummer: " + result.getMatchId() + " " + result.getResultText() + " Ditt val var: " + result.getPlayersFigure().getName() + ", datorns val var: " + result.getComputersFigure().getName() + "\n";
+                        bufferedWriter.append(resultToWrite);
+                        if (player.getResultHistory().listIterator().hasNext()) {
+                            bufferedWriter.append("\n");
+                        }
+                    }
                 }
             }
             bufferedWriter.flush();
