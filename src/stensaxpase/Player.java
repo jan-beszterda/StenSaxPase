@@ -2,13 +2,24 @@ package stensaxpase;
 
 import java.util.ArrayList;
 
+/**
+ * Class provides a template for the player objects within the game. Each player stores their own results and is able
+ * to print them to console.
+ *
+ * @author Jan Beszterda
+ */
 public class Player {
 
-    private final String NAME;
+    private String name;
     private ArrayList<Result> resultHistory;
 
-    public Player(String NAME) {
-        this.NAME = NAME;
+    /**
+     * Constructor of the player object.
+     *
+     * @param name Name of the player supplied by the person playing the game.
+     */
+    public Player(String name) {
+        this.name = name;
         resultHistory = new ArrayList<>();
     }
 
@@ -18,11 +29,11 @@ public class Player {
      */
     public void showHistory() {
         System.out.println();
-        System.out.println("Spel historik för: " + NAME);
+        System.out.println("Spel historik för: " + name);
         if (!resultHistory.isEmpty()){
             for (Result result : resultHistory) {
                 System.out.format("Spel nummer: %1$d. %2$s Ditt val var: %3$s, datorns val var: %4$s", result.getMatchId(),
-                        result.getResultText(), result.getPlayersFigure().getNAME(), result.getComputersFigure().getNAME());
+                        result.getResultText(), result.getPlayersFigure().getName(), result.getComputersFigure().getName());
                 System.out.println();
             }
         } else {
@@ -31,7 +42,7 @@ public class Player {
     }
 
     public String getName() {
-        return NAME;
+        return name;
     }
 
     public ArrayList<Result> getResultHistory() {
