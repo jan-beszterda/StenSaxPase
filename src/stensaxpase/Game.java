@@ -213,7 +213,7 @@ public class Game {
         }
         System.out.println();
         System.out.print("Gör ett val: ");
-        int choice = 0;
+        int choice = -1;
         try {
             choice = Integer.parseInt(this.scanner.nextLine());
         } catch (Exception e) {
@@ -261,7 +261,7 @@ public class Game {
                 String playerToWrite = player.getName() + "\n";
                 bufferedWriter.append(playerToWrite);
                 if (player.getResultHistory().isEmpty()) {
-                    bufferedWriter.append("Inga matcher spelade hittills!");
+                    bufferedWriter.append("Inga matcher spelade.");
                 } else {
                     for (Result result : player.getResultHistory()) {
                         String resultToWrite = "Spel nummer: " + result.getMatchId() + " " + result.getResultText() + " Ditt val var: " + result.getPlayersFigure().getName() + ", datorns val var: " + result.getComputersFigure().getName() + "\n";

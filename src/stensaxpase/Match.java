@@ -70,7 +70,7 @@ public class Match {
      *
      * @return One of the three figures: Sten, Sax or Påse.
      */
-    public Figure chooseComputersFigure() {
+    private Figure chooseComputersFigure() {
         Random r = new Random();
         return Figures[r.nextInt(3)];
     }
@@ -82,7 +82,7 @@ public class Match {
      * @param computersChoice Figure chosen at random for the computer.
      * @param playersChoice Figure chosen by the player.
      */
-    public void compareChoices(Figure computersChoice, Figure playersChoice) {
+    private void compareChoices(Figure computersChoice, Figure playersChoice) {
         System.out.println();
         if (playersChoice.getName().equalsIgnoreCase(computersChoice.getLooseTo())) {
             this.result = new Result(this.id, playersChoice, computersChoice, "Du vann!");
