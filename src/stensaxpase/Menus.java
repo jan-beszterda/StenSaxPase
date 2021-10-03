@@ -41,6 +41,7 @@ public class Menus {
 
     /**
      * Menu with options displayed to the user if a player was previously registered.
+     * @param currentPlayer player that is currently active in the game
      * @return choice made in this menu by user
      */
     public static int displayRegisteredPlayerMenuOptions(Player currentPlayer) {
