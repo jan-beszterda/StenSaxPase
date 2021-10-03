@@ -2,7 +2,6 @@ package stensaxpase;
 
 /**
  * Class provides a template for match results to be stored in the player's results history.
- *
  * @author Jan Beszterda
  */
 public class Result {
@@ -15,7 +14,6 @@ public class Result {
 
     /**
      * Constructor of the Result object initialising it with necessary data generated in the match.
-     *
      * @param matchId Match ID from the match that created this result.
      * @param playersFigure Figure chosen in the match by the player.
      * @param computersFigure Figure chosen at random for the computer in the match.

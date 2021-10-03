@@ -1,12 +1,10 @@
 package stensaxpase;
 
 import java.util.Random;
-import java.util.Scanner;
 
 /**
- * Class responsible for match playing. Allows player to choose their figure, choosing figure at random for the computer,
- * evaluating and creating the match result.
- *
+ * Class responsible for playing a match. Allows player to choose their figure, chooses at random a figure
+ * for the computer, evaluates and creates the match result.
  * @author Jan Beszterda
  */
 public class Match {
@@ -15,50 +13,30 @@ public class Match {
             new Figure("SAX", "PÅSE", "STEN"),
             new Figure("PÅSE", "STEN", "SAX")};
     private Player currentPlayer;
-    private Scanner scanner;
     private int id;
     private static int counter = 1;
     private Result result;
 
     /**
      * Constructor for the Match object. Initialises the match ID with the next integer number starting from 1.
-     *
      * @param currentPlayer Current player playing the match passed from the game.
-     * @param scanner Scanner for user input passed from the game.
      */
-    public Match(Player currentPlayer, Scanner scanner) {
-        this.scanner = scanner;
+    public Match(Player currentPlayer) {
         this.currentPlayer = currentPlayer;
         this.id = counter;
         counter++;
     }
 
     /**
-     * Method shows the choice menu to the player and calls the match evaluation method.
+     * Method calls the menu to display the possible choices to the player and calls the match evaluation method
+     * forwarding it the computer's and player's choices.
      */
-    public void showPlayerChoiceMenu() {
-        System.out.println();
-        System.out.println("**********************");
-        System.out.println("*    Gör ditt val    *");
-        System.out.println("**********************");
-        System.out.println("* 1. Sten            *");
-        System.out.println("* 2. Sax             *");
-        System.out.println("* 3. Påse            *");
-        System.out.println("**********************");
-        System.out.println();
-        System.out.print("Ditt val: ");
-        int choice = 0;
-        try {
-            choice = Integer.parseInt(this.scanner.nextLine());
-        } catch (Exception e) {
-            System.out.println();
-            System.out.println("Felaktigt alternativ!");
-            showPlayerChoiceMenu();
-        }
+    public void showMatchMenu() {
+        int choice = Menus.displayMatchMenuOptions();
         if (choice < 1 || choice > 3) {
             System.out.println();
             System.out.println("Felaktigt val!");
-            showPlayerChoiceMenu();
+            showMatchMenu();
         } else {
             compareChoices(chooseComputersFigure(), Figures[choice - 1]);
             System.out.println();
@@ -67,7 +45,6 @@ public class Match {
 
     /**
      * Method chooses at random one of the Figures used in the game for the computer opponent.
-     *
      * @return One of the three figures: Sten, Sax or Påse.
      */
     private Figure chooseComputersFigure() {
@@ -76,9 +53,8 @@ public class Match {
     }
 
     /**
-     * Method compares player's and computer's game figures and evaluates the game result which is added
+     * Method compares player's and computer's match figures and evaluates the game result which is added
      * to the player's results list.
-     *
      * @param computersChoice Figure chosen at random for the computer.
      * @param playersChoice Figure chosen by the player.
      */

@@ -5,7 +5,6 @@ import java.util.ArrayList;
 /**
  * Class provides a template for the player objects within the game. Each player stores their own results and is able
  * to print them to console.
- *
  * @author Jan Beszterda
  */
 public class Player {
@@ -15,7 +14,6 @@ public class Player {
 
     /**
      * Constructor of the player object.
-     *
      * @param name Name of the player supplied by the person playing the game.
      */
     public Player(String name) {
@@ -25,7 +23,6 @@ public class Player {
 
     /**
      * Method iterates over player's results list and prints them to console.
-     *
      */
     public void showHistory() {
         System.out.println();
