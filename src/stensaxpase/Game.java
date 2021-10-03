@@ -123,7 +123,8 @@ public class Game {
      * Method allowing the user of the application to create a player. It sets the newly created player as active.
      */
     private void createPlayer() {
-        currentPlayer = new Player(Menus.displayPlayerCreationMenu());
+        String name = Menus.displayPlayerCreationMenu();
+        currentPlayer = new Player(name);
         players.add(currentPlayer);
     }
 

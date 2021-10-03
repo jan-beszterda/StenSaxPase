@@ -34,7 +34,7 @@ public class Menus {
         } catch (Exception ignore) {
             System.out.println();
             System.out.println("Felaktigt alternativ!");
-            displayNoPlayerMenuOptions();
+            choice = Menus.displayNoPlayerMenuOptions();
         }
         return choice;
     }
@@ -65,7 +65,7 @@ public class Menus {
         } catch (Exception e) {
             System.out.println();
             System.out.println("Felaktigt alternativ!");
-            displayRegisteredPlayerMenuOptions(currentPlayer);
+            choice = Menus.displayRegisteredPlayerMenuOptions(currentPlayer);
         }
         return choice;
     }
@@ -91,7 +91,7 @@ public class Menus {
         } catch (Exception e) {
             System.out.println();
             System.out.println("Felaktigt alternativ!");
-            displayAfterMatchMenuOptions();
+            choice = Menus.displayAfterMatchMenuOptions();
         }
         return choice;
     }
@@ -117,7 +117,7 @@ public class Menus {
         } catch (Exception e) {
             System.out.println();
             System.out.println("Felaktigt alternativ!");
-            displayMatchMenuOptions();
+            choice = Menus.displayMatchMenuOptions();
         }
         return choice;
     }
@@ -131,9 +131,9 @@ public class Menus {
         System.out.println();
         System.out.print("Skriv in spelarens namn: ");
         name = scanner.nextLine();
-        if(name.isEmpty()) {
+        if (name.isEmpty()) {
             System.out.println("Spelarens namn kan inte vara tom!");
-            displayPlayerCreationMenu();
+            name = Menus.displayPlayerCreationMenu();
         }
         return name;
     }
@@ -159,7 +159,7 @@ public class Menus {
         } catch (Exception e) {
             System.out.println();
             System.out.println("Felaktigt alternativ!");
-            displayPlayerChoiceMenu(players);
+            choice = Menus.displayPlayerChoiceMenu(players);
         }
         return choice;
     }
